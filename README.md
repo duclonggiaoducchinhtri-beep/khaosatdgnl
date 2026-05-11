@@ -625,7 +625,7 @@
       </div>
       <div class="hero-logo">V-ACT 2026</div>
     </div>
-    <h1>Phiếu ghi danh<br>lớp ôn thi Đánh giá Năng lực</h1>
+    <h1 style="text-transform:uppercase;letter-spacing:0.04em;">Phiếu ghi danh lớp ôn thi<br>Đánh giá Năng lực TVIM</h1>
     <p>Điền đầy đủ để thầy/cô xây dựng lộ trình ôn thi phù hợp — bám sát cấu trúc đề V-ACT 2025–2026 của ĐHQG TP.HCM.</p>
     <div class="hero-stats">
       <div class="hs-item"><span class="hs-val">120</span><span class="hs-lbl">câu trắc nghiệm</span></div>
@@ -678,7 +678,12 @@
     <div class="step-line" id="sl3"></div>
     <div class="step-node" id="sn4">
       <div class="step-circle" id="sc4">4</div>
-      <div class="step-label"><span class="sn">Bước 4</span><span class="sl">Cam kết</span></div>
+      <div class="step-label"><span class="sn">Bước 4</span><span class="sl">Đăng ký</span></div>
+    </div>
+    <div class="step-line" id="sl4"></div>
+    <div class="step-node" id="sn5">
+      <div class="step-circle" id="sc5">5</div>
+      <div class="step-label"><span class="sn">Bước 5</span><span class="sl">Cam kết</span></div>
     </div>
   </div>
 
@@ -922,16 +927,6 @@
     </div>
 
     <div class="fg">
-      <label class="lbl">Đợt thi V-ACT dự định tham gia <span class="req"></span></label>
-      <div class="radio-g">
-        <label class="ro"><input type="radio" name="dot" /> Đợt 1 – khoảng tháng 3/2026 (tại 55 tỉnh/thành)</label>
-        <label class="ro"><input type="radio" name="dot" /> Đợt 2 – ngày 24/5/2026 (tại 9 tỉnh/thành khu vực miền Nam & Trung)</label>
-        <label class="ro"><input type="radio" name="dot" /> Cả hai đợt (thi đợt 1 thử sức, đợt 2 lấy điểm chính)</label>
-        <label class="ro"><input type="radio" name="dot" /> Chưa xác định</label>
-      </div>
-    </div>
-
-    <div class="fg">
       <label class="lbl">Điểm V-ACT mục tiêu bạn muốn đạt <span class="req"></span></label>
       <div class="target-grid" id="tg-grid">
         <button class="tg-btn" onclick="selTarget(this)"><span class="tv">≤ 700</span><span class="ts">nhập môn</span></button>
@@ -1012,8 +1007,77 @@
     </div>
   </div>
 
-  <!-- ===== STEP 4: CAM KẾT & CHỮ KÝ ===== -->
+  <!-- ===== STEP 4: HÌNH THỨC & THỜI GIAN HỌC ===== -->
   <div class="sec-card" id="step-4">
+    <div class="sec-header">
+      <div class="sec-icon ic-blue">&#128197;</div>
+      <div>
+        <h2>Hình thức & thời gian học</h2>
+        <p>Chọn hình thức phù hợp với lịch sinh hoạt của bạn</p>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label class="lbl">Hình thức đăng ký <span class="req"></span></label>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px;">
+
+        <label style="cursor:pointer;">
+          <input type="radio" name="hinhthuc" value="offline" style="display:none;" onchange="selectHinhThuc('offline')" />
+          <div class="ht-card" id="ht-offline" onclick="this.previousElementSibling.click()" style="border:1.5px solid var(--gray-300);border-radius:var(--radius-md);padding:16px 14px;transition:all .2s;background:#fff;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+              <div style="width:34px;height:34px;border-radius:8px;background:var(--blue-50);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">&#127979;</div>
+              <div>
+                <div style="font-size:14px;font-weight:500;color:var(--gray-800);">OFFLINE</div>
+                <div style="font-size:11px;color:var(--gray-600);">Học trực tiếp tại trung tâm</div>
+              </div>
+            </div>
+            <div style="background:var(--blue-50);border-radius:var(--radius-sm);padding:10px 12px;">
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;">
+                <span style="font-size:11px;font-weight:500;color:var(--blue-800);">&#128197; Ngày học</span>
+              </div>
+              <div style="font-size:12px;color:var(--blue-800);font-weight:500;">Thứ 7 & Chủ nhật</div>
+              <div style="display:flex;align-items:center;gap:6px;margin-top:7px;margin-bottom:4px;">
+                <span style="font-size:11px;font-weight:500;color:var(--blue-800);">&#128336; Giờ học</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:var(--blue-800);">15:30 – 17:30</div>
+            </div>
+          </div>
+        </label>
+
+        <label style="cursor:pointer;">
+          <input type="radio" name="hinhthuc" value="online" style="display:none;" onchange="selectHinhThuc('online')" />
+          <div class="ht-card" id="ht-online" onclick="this.previousElementSibling.click()" style="border:1.5px solid var(--gray-300);border-radius:var(--radius-md);padding:16px 14px;transition:all .2s;background:#fff;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+              <div style="width:34px;height:34px;border-radius:8px;background:var(--teal-50);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">&#128187;</div>
+              <div>
+                <div style="font-size:14px;font-weight:500;color:var(--gray-800);">ONLINE</div>
+                <div style="font-size:11px;color:var(--gray-600);">Học qua Zoom / Google Meet</div>
+              </div>
+            </div>
+            <div style="background:var(--teal-50);border-radius:var(--radius-sm);padding:10px 12px;">
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;">
+                <span style="font-size:11px;font-weight:500;color:var(--teal-800);">&#128197; Ngày học</span>
+              </div>
+              <div style="font-size:12px;color:var(--teal-800);font-weight:500;">Thứ 7 & Chủ nhật</div>
+              <div style="display:flex;align-items:center;gap:6px;margin-top:7px;margin-bottom:4px;">
+                <span style="font-size:11px;font-weight:500;color:var(--teal-800);">&#128336; Giờ học</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:var(--teal-800);">19:30 – 21:30</div>
+            </div>
+          </div>
+        </label>
+
+      </div>
+    </div>
+
+    <div class="nav">
+      <button class="btn-prev" onclick="go(3)">&#8592; Quay lại</button>
+      <button class="btn-next" onclick="go(5)">Tiếp theo &#8594;</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 5: CAM KẾT & XÁC NHẬN ===== -->
+  <div class="sec-card" id="step-5">
     <div class="sec-header">
       <div class="sec-icon ic-amber">&#128221;</div>
       <div>
@@ -1033,34 +1097,6 @@
       </ul>
     </div>
 
-    <div class="frow sign-row">
-      <div class="fg">
-        <label class="lbl">Họ tên học sinh (ký tên xác nhận) <span class="req"></span></label>
-        <input type="text" id="sign_hs" placeholder="Nguyễn Văn A" />
-      </div>
-      <div class="fg">
-        <label class="lbl">Họ tên phụ huynh <span class="req"></span></label>
-        <input type="text" id="sign_ph" placeholder="Nguyễn Thị B" />
-      </div>
-    </div>
-
-    <div class="frow sign-row">
-      <div class="fg">
-        <label class="lbl">Ngày ký</label>
-        <input type="date" id="ngayky" />
-      </div>
-      <div class="fg">
-        <label class="lbl">Mối quan hệ phụ huynh với học sinh</label>
-        <select id="quanhe">
-          <option value="" disabled selected>Chọn mối quan hệ</option>
-          <option>Cha / Mẹ</option>
-          <option>Anh / Chị / Em</option>
-          <option>Ông / Bà</option>
-          <option>Người giám hộ khác</option>
-        </select>
-      </div>
-    </div>
-
     <div class="fg">
       <label class="co" style="cursor:pointer;">
         <input type="checkbox" id="agree" style="width:auto;accent-color:var(--blue-600);width:15px;height:15px;" />
@@ -1069,7 +1105,7 @@
     </div>
 
     <div class="nav">
-      <button class="btn-prev" onclick="go(3)">&#8592; Quay lại</button>
+      <button class="btn-prev" onclick="go(4)">&#8592; Quay lại</button>
       <button class="btn-submit" onclick="sub()">&#10003; Hoàn tất đăng ký</button>
     </div>
   </div>
@@ -1098,19 +1134,28 @@
 
 <script>
   function go(n) {
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 5; i++) {
       document.getElementById('step-' + i).classList.remove('visible');
       const sn = document.getElementById('sn' + i);
       sn.classList.remove('active', 'done');
       if (i < n) {
         sn.classList.add('done');
         document.getElementById('sc' + i).textContent = '✓';
-        if (i < 4) document.getElementById('sl' + i).classList.add('done');
+        if (i < 5) document.getElementById('sl' + i).classList.add('done');
       }
     }
     document.getElementById('step-' + n).classList.add('visible');
     document.getElementById('sn' + n).classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function selectHinhThuc(val) {
+    const offCard = document.getElementById('ht-offline');
+    const onCard  = document.getElementById('ht-online');
+    offCard.style.borderColor = val === 'offline' ? 'var(--blue-600)' : 'var(--gray-300)';
+    offCard.style.background  = val === 'offline' ? 'var(--blue-50)'  : '#fff';
+    onCard.style.borderColor  = val === 'online'  ? 'var(--teal-600)' : 'var(--gray-300)';
+    onCard.style.background   = val === 'online'  ? 'var(--teal-50)'  : '#fff';
   }
 
   function tog(b) { b.classList.toggle('sel'); }
@@ -1134,13 +1179,13 @@
       alert('Vui lòng đọc và đồng ý với các cam kết trước khi hoàn tất đăng ký.');
       return;
     }
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 5; i++) {
       document.getElementById('step-' + i).classList.remove('visible');
       const sn = document.getElementById('sn' + i);
       sn.classList.remove('active');
       sn.classList.add('done');
       document.getElementById('sc' + i).textContent = '✓';
-      if (i < 4) document.getElementById('sl' + i).classList.add('done');
+      if (i < 5) document.getElementById('sl' + i).classList.add('done');
     }
     document.getElementById('ok').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
